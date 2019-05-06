@@ -1,0 +1,382 @@
+@import "./config.scss";
+
+header {
+  position: relative;
+  top: 0;
+
+  display: block;
+  width: 100%;
+  background: black;
+  color: wheat;
+  height: 90px;
+  @include transition(2s ease-in-out);
+
+  .logo {
+    font-size: x-large;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    @include translateY(-50%);
+
+    &::selection {
+      color: transparent;
+    }
+
+    &:hover {
+      color: darkorange;
+      @include transition(.2s ease-in-out)
+
+    }
+  }
+
+  nav,
+  nav ul,
+  nav ul li {
+    margin: 0;
+    padding: 0;
+  }
+
+  nav {
+    position: absolute;
+    top: 50%; right: 15px;
+    @include translateY(-50%);
+
+    ul li {
+      list-style-type: none;
+      display: inline-block;
+      margin-right: 10px;
+
+    &.last {
+      margin: 0;
+    }
+
+    a{
+      font-size: 19px;
+      line-height: normal;
+      color: wheat;
+     }
+   }
+  }
+}
+
+body {
+  position: relative;
+  overflow: visible !important;
+  background: lighten(wheat, 8%);
+  color: darken(grey, 23%);
+
+  .navList, .navList-disabled {
+    position: fixed;
+    position: -ms-device-fixed;
+    display: block;
+    width: 100px;
+    margin-left: 10px;
+    margin-top: 15%;
+    overflow: visible;
+    z-index: 1;
+
+    li {
+      @include transition(.3s ease-in-out);
+      a {
+        color: #454545;
+        &:hover {
+          color: darkorange;
+          @include transition(.3s ease-in-out);
+        }
+      }
+
+      margin-bottom: 50px;
+      list-style: none;
+
+      }
+
+    }
+
+  .navList-disabled {
+    color:transparent;
+    @include transition(.3s ease-in-out);
+    li {
+      a {
+        cursor: default;
+        color:transparent;
+        @include transition(.3s ease-in-out);
+        &:hover {
+          color: transparent;
+          @include transition(.3s ease-in-out);
+        }
+      }
+  }
+  }
+
+  .card-body {
+    text-align: center;
+    background-color: #0c0801cc;
+    color: #fbeab8e3;
+    border-top: 0.5px dotted wheat;
+
+    .card-title {
+      font-size: 25px;
+      margin-top: 0;
+    }
+
+    .btn {
+      width: 175px;
+      color: wheat;
+      border-color: whitesmoke;
+
+      &:hover {
+        background-color: wheat;
+        color: #0c0801cc;
+      }
+    }
+
+  }
+
+
+  .reduxListItem {
+
+    .carousel-slide {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      height: 600px;
+
+      img {
+        width: 100%;
+        height: 600px;
+      }
+    }
+
+    list-style: none;
+    margin: 20px auto;
+  }
+
+
+  .card {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 50%;
+  }
+
+  ::selection {
+    background: white;
+  }
+
+  .hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    width: 100vw;
+    height: 150vh; // this should be dynamic, right now it's fixed based on a min max offset
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero-children {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 150px;
+    margin-right: 150px;
+
+    h1 {
+      margin-left: 2%;
+      text-align: center;
+      margin-right: 2%;
+      line-height: 1.5;
+     font-size: 35px;
+     font-weight: 600;
+        }
+
+    strong {
+      color: darkorange;
+
+      mark {
+        background-color: transparentize(black, 0.25);
+        color: #fffad3;
+      }
+    }
+
+  }
+
+  .parallaxBanner {
+    position: relative;
+    color: white;
+    font-family: 'Futura', 'Helvetica', sans-serif;
+    font-weight: normal;
+  }
+
+  h2 {
+    font-size: 40px;
+    text-align: center;
+
+  }
+
+  .container-fluid {
+
+    text-align: center;
+    font-size: xx-large;
+
+    h1 {
+      margin-top: 30px;
+      font-size: 40px;
+    }
+
+    div {
+      margin-left: 150px;
+      margin-right: 150px;
+      margin-top: 6%;
+      height: fit-content;
+      display: block;
+
+      mark {
+        &::selection {
+          background: transparent;
+        }
+        color: wheat;
+        background: transparentize(black, 0.3);
+        @include transition(0.4s ease-in-out);
+
+        &:hover {
+          &::selection {
+            background: white;
+            @include transition(0.4s ease-in-out)
+          }
+          color: darken(grey, 23%);
+          background: lighten(wheat, 8%);
+          @include transition(0.4s ease-in-out)
+        }
+      }
+
+         .firstLine {
+            text-align: left;
+       }
+         .secondLine {
+            text-align: center;
+      }
+         .thirdLine {
+            text-align: right;
+      }
+    }
+  }
+
+  .stickyPanel, .stickyPanel-disabled {
+
+    position: sticky;
+    position: -webkit-sticky;
+    margin-bottom: 0;
+    bottom: -0.25%;
+    width: 100%;
+    display: inline-flex;
+    background-color: transparentize(black, 0.25);
+    color: wheat;
+    border-bottom: 2px solid transparentize(wheat, 0.5) ;
+    transition: all 300ms ease-out;
+
+    .panelBtn {
+      cursor: pointer;
+      position: absolute;
+      right: 50px;
+      font-size: 45px;
+      margin-top: 20px;
+      @include transition(.5s ease-in-out);
+    }
+
+    .Icons {
+      margin: 0 auto;
+      padding-bottom: 9px;
+      display: inline-flex;
+      justify-content: space-between;
+      width: 300px;
+
+
+      a {
+        list-style: none;
+        margin-top: 7px;
+        left: 0;
+        @include transition(.4s ease-in-out);
+
+        .social-svg {
+
+          background: transparent;
+          @include transition(.8s ease-in-out);
+
+          &:hover {
+            background: darkorange;
+            @include transition(.2s ease-in-out)
+          }
+        }
+      }
+    }
+  }
+
+.stickyPanel-disabled {
+
+  @include transition(.5s ease-in-out);
+  @include translateY(100%);
+  margin-bottom: 80px;
+
+  .panelBtn {
+
+    position: absolute;
+    right: 50px;
+    font-size: 45px;
+    color: transparentize(black, 0.25);
+    @include translateY(-120%);
+    @include transition(.5s ease-in-out);
+  }
+  }
+
+
+footer {
+  position: relative;
+  bottom: 0;
+  display: block;
+  height: 200px;
+  width: 100%;
+  background-color: transparentize(black, 0.25);
+  color: wheat;
+  text-align: center;
+
+  .contactBtn {
+    border: 2px solid wheat;
+    font-size: 30px;
+    height: 60px;
+    width: 300px;
+    margin-top: 70px;
+    border-radius: 30px;
+    @include transition(0.5s ease-in-out);
+
+    &:focus {
+      outline: none !important;
+    }
+
+    &:hover {
+      border-color: antiquewhite;
+      background-color: transparentize(black, 0.75);
+      @include transition(0.5s ease-in-out);
+      span {
+        color: antiquewhite;
+        @include transition(0.5s ease-in-out);
+      }
+    }
+
+    span {
+      color: wheat;
+      text-transform: none !important;
+      @include transition(0.5s ease-in-out);
+    }
+
+    }
+  }
+}
